@@ -1,0 +1,1 @@
+ {"prod_type":"ev","ev_threshold":3}
