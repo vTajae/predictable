@@ -80,14 +80,14 @@ def sse_worker(
       - EV lists
       - arbitrage opportunities
     """
-    from marketData.getOpticOdds import API_KEY, STREAM_BASE, API_BASE
+    from opticOdds.config import API_KEY, STREAM_BASE, API_BASE
 
     debug = os.getenv("WS_DEBUG", "0").strip().lower() in ("1","true","yes","on") or os.getenv("SSE_VERBOSE", "0").strip().lower() in ("1","true","yes")
     lg_size = league_chunk_size
     sb_size = sportsbook_chunk_size
 
     try:
-        from marketData.utils import chunk_list
+        from opticOdds.utils import chunk_list
         lg_subchunks: list[list[str]] = chunk_list(list(leagues or []), lg_size)
         sb_subchunks: list[list[str]] = chunk_list(list(sportsbooks or []), sb_size)
     except Exception:

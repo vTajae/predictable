@@ -44,8 +44,7 @@ def get_all_active_sportsbooks() -> list[str]:
             names_raw.append(n.strip())
     unique_names = dedupe_preserve_order(names_raw)
     if not unique_names:
-        # Provide a minimal fallback
-        return ["DraftKings", "FanDuel", "BetMGM", "Caesars"]
+      pass
     return unique_names
 
 def get_leagues_for_sport(sport: str) -> list[str]:

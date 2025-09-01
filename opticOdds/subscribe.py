@@ -48,9 +48,9 @@ def subscribe_all_sports(
     if _sse_worker is None:
         # Default to the calculations module's worker to preserve behavior
         try:
-            from marketData.calculations import sse_worker as _sse_worker  # type: ignore
+            from calculations import sse_worker as _sse_worker  # type: ignore
         except Exception:
-            from calc_modular import sse_worker as _sse_worker  # type: ignore
+            from calculations import sse_worker as _sse_worker  # type: ignore
 
     # Fetch scope: sportsbooks + sports (+ mapping for names)
     sportsbooks = get_all_active_sportsbooks()

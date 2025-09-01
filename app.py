@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
 import uvicorn
 
-from opticOdds.catalogue import get_all_active_sportsbooks
+from opticOdds.subscribe import subscribe_all_sports
 
 from server.config import Settings
 from server.hub import Hub
@@ -91,7 +91,7 @@ async def stream(ws: WebSocket):
 
             stream_stop_evt = threading.Event()
             stream_thread = threading.Thread(
-                target=get_all_active_sportsbooks,
+                target=subscribe_all_sports,
                 kwargs=dict(
                     sportsbook_chunk_size=settings.sportsbook_chunk_size,
                     league_chunk_size=settings.league_chunk_size,

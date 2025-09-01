@@ -12,7 +12,7 @@ def ensure_fixture_meta(sport: str, fixture_id: str, leagues: Optional[list[str]
     try:
         if not fixture_id or fixture_id in fixture_meta_fetched:
             return
-        from marketData.getOpticOdds import API_BASE, API_KEY
+        from opticOdds.config import API_BASE, API_KEY
 
         base = f"{API_BASE}/fixtures/active?key={API_KEY}&sport={requests.utils.quote(str(sport), safe='')}"
         urls = [
